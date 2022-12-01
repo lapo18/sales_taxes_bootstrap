@@ -1,0 +1,239 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
+    font-family: 'Lato', sans-serif;
+}
+header{
+    z-index: 10;
+    width: 100vw;
+    top: 0;
+    position: fixed;
+    background-color: #fff;
+    filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.05));
+}
+
+nav {
+    max-width: 1600px;
+    height: 84px;
+    margin:0 auto;
+    padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+body{
+    background-color:#F6F7FC;
+    margin-top: 150px;
+}
+a{
+    text-transform: uppercase;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 23px;
+    color:#08C6C0;
+
+}
+.logo{
+    
+}
+h2{
+    color: #23242A;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 54px;
+    align-self: flex-start;
+}
+main{
+    margin: 0 auto;
+    max-width: 1600px;
+    padding: 0 15px;
+}
+.item{
+    width: 255px;
+    height: 330px;
+}
+.item .image-wrapper{
+    position: relative;
+    height: 183px;
+    background-color: #fff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    
+}
+.badge-secondary{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 10px;
+    gap: 4px;
+    color: #fff;
+    font-size: 9px;
+    position: absolute;
+    width: 69px;
+    height: 24px;
+    left: 8px;
+    top: 152px;
+    border-radius: 4px;
+    background-color: #23242A;
+}
+.item-image{
+    border-radius: 4px 4px 0px 0px;
+}
+.badge-category{
+    text-transform: uppercase;
+    font-weight: 500;
+    font-family:Arial, Helvetica, sans-serif;
+    color: #fff;
+    font-size: 10px;
+}
+.itemDetails{
+    display: flex;
+    flex-direction: column;
+}
+button{
+    width: 255px;
+    height: 35px;
+    border: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+    background: #08C6C0;
+    border-radius: 4px;
+}
+#receiptbutton{
+    margin-bottom: 35px;
+}
+.cart{
+    display: flex;
+    flex-direction: column;
+   align-items: flex-end;
+    width: 100%;
+}
+.cart_summary{
+    
+    width: 635px;
+    height: 153px;
+    background-color: #fff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+h4{
+    color:#212529;
+    font-weight: 700;
+    font-size: 20px;
+}
+.price{
+    color: #212529;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23px;
+    margin-bottom: 8px;
+}
+.import-wrapper{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: pointer;
+    font-family:'Lato';
+    font-weight: 400;
+    font-size: 14px;
+    color: #212529CC;
+    margin-bottom: 17px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.import-wrapper input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.checkmark {
+    margin-right: 7px;
+    height: 13px;
+    width: 13px;
+    border:1px solid #08C6C0;
+    font-size: 9px;
+    text-align: center;
+  }
+  
+
+
+
+  table {
+    display: grid;
+    border-collapse: collapse;
+    min-width: 100%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    grid-template-columns:
+    27px
+      minmax(150px, 5fr)
+      minmax(150px, 1fr)
+      minmax(150px, 1fr)
+      minmax(150px, 1fr)
+      minmax(50px, 1fr)
+      
+  }
+  
+  thead,
+  tbody,
+  tr {
+    display: contents;
+  }
+  
+  th,
+  td {
+    padding: 15px 27px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  th {
+    position: sticky;
+    top: 0;
+    text-align: left;
+    font-weight: 700;
+    font-size: 16px;
+    color:#221122;
+    ;
+    border-bottom: 1px solid grey;
+  }
+  
+  td {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #808080;
+  }
+
+  @media only screen and (max-width: 600px){
+    .navbar_link{
+        font-size: 12px;
+    }
+    .logo{
+        max-width: 100px;
+    }
+    h2{
+        font-size: 30px;
+    }
+    }
