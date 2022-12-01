@@ -41,9 +41,6 @@ a{
     color:#08C6C0;
 
 }
-.logo{
-    
-}
 h2{
     color: #23242A;
     font-style: normal;
@@ -57,7 +54,16 @@ main{
     max-width: 1600px;
     padding: 0 15px;
 }
+.container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
 .item{
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
     width: 255px;
     height: 330px;
 }
@@ -117,11 +123,13 @@ button{
 .cart{
     display: flex;
     flex-direction: column;
-   align-items: flex-end;
+    align-items: flex-end;
     width: 100%;
 }
 .cart_summary{
-    
+    display: grid;
+    grid-template-columns: minmax(50px,3fr) minmax(50px,2fr) minmax(50px,2fr);
+    align-content: space-evenly;
     width: 635px;
     height: 153px;
     background-color: #fff;
@@ -165,14 +173,19 @@ h4{
     width: 0;
 }
 .checkmark {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-right: 7px;
     height: 13px;
     width: 13px;
     border:1px solid #08C6C0;
     font-size: 9px;
     text-align: center;
+}
+.import-wrapper input:checked ~ .checkmark {
+    background-color: #08C6C0;
   }
-  
 
 
 
@@ -226,7 +239,7 @@ h4{
     color: #808080;
   }
 
-  @media only screen and (max-width: 600px){
+  @media only screen and (max-width: 768px){
     .navbar_link{
         font-size: 12px;
     }
@@ -236,4 +249,8 @@ h4{
     h2{
         font-size: 30px;
     }
+    .cart_summary{
+        width: 60vw;
     }
+
+}
