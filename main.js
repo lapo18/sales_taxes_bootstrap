@@ -14,7 +14,7 @@ let generateShop = () => {
        </div>
        <div class="itemDetails">
          <h4> ${name} </h4>
-       <span class="price"> $${price} </span>
+       <div class="price"> $${price} </div>
        <label class="import-wrapper"> Apply import duty
            <input type="checkbox" >
            <div class="checkmark"><svg class="check" width="8" height="7" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg">
