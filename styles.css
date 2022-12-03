@@ -49,6 +49,12 @@ h2{
     line-height: 54px;
     align-self: flex-start;
 }
+h3{
+    font-size: 32px;
+}
+h4{
+    font-size: 20px;
+}
 main{
     margin: 0 auto;
     max-width: 1400px;
@@ -130,15 +136,34 @@ button{
     width: inherit;
 }
 .cart_summary{
-    display: grid;
-    grid-template-columns: minmax(50px,3fr) minmax(50px,2fr) minmax(50px,2fr);
-    align-content: space-evenly;
+    display: flex;
+    justify-content: space-between;
     width: 45vw;
     height: 153px;
+    padding: 42px 27px;
     margin-bottom: 100px;
     background-color: #fff;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
     border-radius: 4px;
+    align-items: baseline;
+}
+.summary-container{
+    margin-left: 20px;
+}
+.total{
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 14px;
+}
+.taxes{
+    font-size: 16px;
+    font-weight: 400;
+}
+.flex{
+    display: flex;
+    gap: 73px;
+    justify-content: space-between;
+    line-height: 23px;
 }
 h4{
     color:#212529;
@@ -300,14 +325,33 @@ h4{
 @media only screen and (max-width: 480px){
 
     
-    th,
-    td{
-    font-size: 11px;
-  }
-  th{
-    font-size: 12px;
-}
+    th,td{
+        font-size: 11px;
+    }
+    th{
+        font-size: 12px;
+    }
     #items-container{
         gap: 20px 10px;
     }
+    .cart_summary{
+        height: auto;
+        width: 70vw;
+        padding: 20px 15px;
+    }
+    .flex{
+        gap: 10px;
+    }
+    h3{
+        font-size: 16px;
+    }
+    .total{
+        font-size: 11px;
+    }
+    .taxes{
+        font-size: 9px;
+    }
+
+
+
 }
