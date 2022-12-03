@@ -54,6 +54,9 @@ main{
     max-width: 1400px;
     padding: 0 15px;
 }
+.catalogue{
+    margin-bottom: 90px;
+}
 #items-container{
     display: grid;
     grid-template-columns: minmax(255px,255px) minmax(255px,255px) minmax(255px,255px) minmax(255px,255px);
@@ -118,6 +121,7 @@ button{
 }
 #receiptbutton{
     margin-bottom: 35px;
+    width: 255px ;
 }
 .cart{
     display: flex;
@@ -195,19 +199,20 @@ h4{
   table {
     display: grid;
     border-collapse: collapse;
-    max-width: 100%;
+    width: 100%;
     margin-top: 30px;
     margin-bottom: 20px;
     background-color: #fff;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
     border-radius: 4px;
     grid-template-columns:
-    minmax(10px,27px)
-    minmax(150px,4fr)
-    minmax(150px, 2fr)
-    minmax(150px, 2fr)
-    minmax(150px, 1fr)
-    minmax(15px, 27px)
+    minmax(5px,27px)
+    minmax(100px,4fr)
+    minmax(70px, 2fr)
+    minmax(50px, 2fr)
+    minmax(50px, 1fr)
+    minmax(10px, 27px)
+    minmax(5px, 27px)
       
   }
   
@@ -219,12 +224,14 @@ h4{
   
   th,
   td {
-    padding: 15px 27px;
+    padding: 15px 0px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  
+  th,.empty{
+    border: 0;
+  }
   th {
     position: sticky;
     top: 0;
@@ -233,13 +240,16 @@ h4{
     font-size: 16px;
     color:#221122;
     ;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid #DEE2E6;
   }
   
   td {
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 13px;
+    padding-bottom: 13px;
     color: #808080;
+  }
+  .delete-icon{
+    text-align: center;
   }
   .fa-trash-can{
     color: #EE2D56;
@@ -288,6 +298,15 @@ h4{
     }
 }
 @media only screen and (max-width: 480px){
+
+    
+    th,
+    td{
+    font-size: 11px;
+  }
+  th{
+    font-size: 12px;
+}
     #items-container{
         gap: 20px 10px;
     }
