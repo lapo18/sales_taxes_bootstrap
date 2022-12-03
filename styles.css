@@ -385,6 +385,10 @@ h4{
     .item{
         height: auto;
     }
+    .itemDetails{
+        min-height: 130px;
+        justify-content: space-between;
+    }
     .cart_summary{
         height: auto;
         width: 70%;
@@ -400,6 +404,9 @@ h4{
     h3{
         flex-grow: 2;
         font-size: 16px;
+    }
+    h4{
+        font-size: 17px;
     }
     .total{
         font-size: 11px;
