@@ -138,7 +138,7 @@ button{
 .cart_summary{
     display: flex;
     justify-content: space-between;
-    width: 45vw;
+    width: 635px;
     height: 153px;
     padding: 42px 27px;
     margin-bottom: 100px;
@@ -280,17 +280,9 @@ h4{
     color: #EE2D56;
     ;
   }
-  @media only screen and ( min-width:768px ) and (max-width: 1023px){
-    nav{
-        max-width: 880px;
-    }
-    main{
-        max-width: 880px;
-    }
-    #items-container{
-        grid-template-columns: repeat(3,minmax(150px,255px));
-  }
-  }
+
+
+
   @media only screen and (min-width:1024px) and (max-width: 1600px){
     nav{
         max-width: 1100px; 
@@ -302,6 +294,31 @@ h4{
         grid-template-columns: repeat(4,minmax(180px,255px));
   }
 }
+  @media only screen and ( min-width:768px ) and (max-width: 1023px){
+    nav{
+        max-width: 880px;
+    }
+    main{
+        max-width: 880px;
+    }
+    #items-container{
+        grid-template-columns: repeat(3,minmax(150px,255px));
+    }
+    .cart_summary{
+        width: 60%;
+    }
+    h3{
+        font-size: 24px;
+    }
+    .total{
+        font-size: 20px;
+
+    }
+    .taxes{
+        font-size: 14px;
+    }
+  }
+  
   @media only screen and (max-width: 767px){
     nav{
         max-width: 500px;
@@ -321,7 +338,38 @@ h4{
     #items-container{
         grid-template-columns: repeat(2,minmax(120px,255px));
     }
+
+    .cart_summary{
+        height: auto;
+        width: 70%;
+        padding: 20px 20px;
+    }
+    .summary-container{
+        margin-left: 10px;
+        flex-grow: 1;
+    }
+    .flex{
+        gap: 0px;
+    }
+    h3{
+        flex-grow: 2;
+        font-size: 18px;
+    }
+    .total{
+        font-size: 14px;
+        margin-bottom: 0px;
+    }
+    .taxes{
+        font-size: 11px;
+    }
+
+
+
 }
+
+
+
+
 @media only screen and (max-width: 480px){
 
     
@@ -334,19 +382,28 @@ h4{
     #items-container{
         gap: 20px 10px;
     }
+    .item{
+        height: auto;
+    }
     .cart_summary{
         height: auto;
-        width: 70vw;
-        padding: 20px 15px;
+        width: 70%;
+        padding: 20px 10px;
+    }
+    .summary-container{
+        margin-left: 10px;
+        flex-grow: 1;
     }
     .flex{
-        gap: 10px;
+        gap: 0px;
     }
     h3{
+        flex-grow: 2;
         font-size: 16px;
     }
     .total{
         font-size: 11px;
+        margin-bottom: 0px;
     }
     .taxes{
         font-size: 9px;
