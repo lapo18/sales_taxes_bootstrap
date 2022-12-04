@@ -86,7 +86,7 @@ let generateShop = () => {
 
  
  let increment = (id) => {
-/*   scrollToCart(); */
+  scrollToCart();
   let cb=document.querySelector(`#cb${id}`);
   let isImported=false;
   if(cb.checked){
