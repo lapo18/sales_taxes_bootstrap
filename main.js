@@ -16,7 +16,8 @@ fetch('https://earnest-taffy-9e7259.netlify.app/sales-tax-problem-test.json')
       temp.innerHTML =  `
       <div class="image-wrapper">
           <img class="item-image" src="${data[i]["image"]}" alt="">
-          <div class="badge-secondary"><img src="assets/badge-icon.svg" alt=""> <span class="badge-category">${ data[i]["category"] }</span></div>
+          <div class="badge-secondary"><img src="assets/badge-icon.svg" alt=""> 
+          <span class="badge-category">${ data[i]["category"] }</span></div>
       </div>
       <div class="itemDetails">
         <h4>${data[i]["name"]}</h4>
@@ -24,8 +25,8 @@ fetch('https://earnest-taffy-9e7259.netlify.app/sales-tax-problem-test.json')
       <label class="import-wrapper"> Apply import duty
           <input id="cb${i+1}" type="checkbox" " >
           <div class="checkmark"><svg class="check" width="8" height="7" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M2.63484 4.76755L0.98486 3.24002L0.276367 3.89594L2.63484 6.07938L7.49859 1.57657L6.7901 0.920654L2.63484 4.76755Z" fill="white"/>
-            </svg>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M2.63484 4.76755L0.98486 3.24002L0.276367 3.89594L2.63484 6.07938L7.49859 1.57657L6.7901 0.920654L2.63484 4.76755Z" fill="white"/>
+          </svg>
             </div>
       </label>
       <button onclick="increment(${i+1})"><span>add to cart</span></button>
@@ -40,47 +41,6 @@ fetch('https://earnest-taffy-9e7259.netlify.app/sales-tax-problem-test.json')
 
 
 
-/*
-
-ALTERNATIVE GENERATE ITEMS 
-
-
-let itemsContainer = document.getElementById("items-container");
-let basket = JSON.parse(localStorage.getItem("data")) || [];
-let generateShop = () => {
-  let i=0;
-   return (itemsContainer.innerHTML = itemsData.map((x) => {
-       let {name, price, category, image} = x;
-       let search = basket.find((x) => x.id === id) || [];
-       i++;
-       
-       return `
-
-
-       <div id="${i}" class="item">
-       <div class="image-wrapper">
-           <img class="item-image" src="${image}" alt="">
-           <div class="badge-secondary"><img src="assets/badge-icon.svg" alt=""><span class="badge-category">${category}</span></div>
-       </div>
-       <div class="itemDetails">
-         <h4> ${name} </h4>
-       <div class="price"> $${price} </div>
-       <label class="import-wrapper"> Apply import duty
-           <input type="checkbox" >
-           <div class="checkmark"><svg class="check" width="8" height="7" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-             <path fill-rule="evenodd" clip-rule="evenodd" d="M2.63484 4.76755L0.98486 3.24002L0.276367 3.89594L2.63484 6.07938L7.49859 1.57657L6.7901 0.920654L2.63484 4.76755Z" fill="white"/>
-             </svg>
-             </div>
-       </label>
-       <button onclick=""increment(${price})"><span>add to cart</span></button>
-       </div>
-     </div>
-
-     `;
-     })
-     .join(""));
- };
- generateShop(); */
 
 
 
@@ -102,35 +62,8 @@ let generateShop = () => {
   console.log(basket);
   generateCartItems(); 
 
- /*  update(selectedItem.id); */
+ 
 };
-
-/* var addItemButton=document.getElementById('item1');
-addItemButton.addEventListener('click',function(event){
- console.log(addItemButton);
-}) */
-
-
-  /*     <div id=product-id-${category} class="item">
-         <img width="220" src=${image} alt="">
-         <div class="details">
-           <h3>${name}</h3>
-           <p>${category}</p>
-           <div class="price-quantity">
-             <h2>$ ${price} </h2>
-             <div class="buttons">
-               <i onclick="decrement(${name})" class="bi bi-dash-lg"></i>
-               <div id=${name} class="quantity">
-               ${search.item === undefined ? 0 : search.item}
-               </div>
-               <i onclick="increment(${name})" class="fa-solid fa-plus-lg"></i>
-             </div>
-           </div>
-         </div>
-       </div>
- */
-
-
 
 
 
@@ -169,7 +102,10 @@ function removeCartItem(id){
   let deleteItem=document.querySelectorAll('.delete-button')
   console.log(deleteItem);
   basket.splice(id,1);
+  TotalAmount();
+  Totaltaxes();
   generateCartItems();
+
 }
 
 
@@ -180,10 +116,12 @@ function removeCartItem(id){
  let generateCartItems = () => {
   if (basket.length !== 0) {
     let i=-1;
+    TotalAmount();
+    Totaltaxes();
+
     return (ShoppingCart.innerHTML = basket
       .map((x) => {
-        TotalAmount();
-        Totaltaxes();
+       
         
         let { id, imported, taxes } = x;
         let search = itemData.find((x) => x.id === id) || [];
@@ -220,8 +158,7 @@ function removeCartItem(id){
 
     `;
   }
-
-
+  
 };
 generateCartItems();
 
@@ -253,7 +190,7 @@ let TotalAmount = () => {
       .reduce((x, y) => x + y, 0);
     
     return (total.innerText ="$"+amount.toFixed(2));
-  } else return;
+  } else return total.innerText="$0.00";
 };
 
 TotalAmount();
@@ -285,7 +222,7 @@ let Totaltaxes = () => {
       .reduce((x, y) => x + y, 0);
     
     return (totaltaxes.innerText ="$"+amount.toFixed(2));
-  } else return;
+  } else return totaltaxes.innerText ="$0.00";
 };
 Totaltaxes();
 
