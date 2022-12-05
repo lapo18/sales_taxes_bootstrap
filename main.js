@@ -179,9 +179,7 @@ const printButton = document.getElementById('receiptbutton');
 printButton.addEventListener('click', function(){
   printButton.style.display="none";
   print();
-  
   printButton.style.display="block";
-  clearbasket();
 })
 
 /* DELETE ALL ITEMS ON BASKET
