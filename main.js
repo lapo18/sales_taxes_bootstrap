@@ -33,7 +33,7 @@ fetch('./sales-tax-problem-test.json')
     itemData=data;
 } );
 
-
+/* PRINT CART */
 let printButton = document.getElementById('receiptbutton');
 printButton.addEventListener("click", function(){  printButton.style.display="none";
 print();});
@@ -51,7 +51,6 @@ window.onafterprint = (event) => {
 /* window.addEventListener('afterprint', (event) => {
   printButton.style.display="block";
   setTimeout(function(){clearbasket();},500)
-
 }); */
 /* DELETE ALL ITEMS ON BASKET*/
 function clearbasket(){
@@ -72,7 +71,6 @@ function clearbasket(){
 
 let addToBasket = (id) => {
   scrollToCart();
-  
   let cb=document.querySelector(`#cb${id}`);
   let isImported=false;
   if(cb.checked){
@@ -204,6 +202,4 @@ let calcTotalTaxes = () => {
     return (totaltaxes.innerText ="$"+amount.toFixed(2));
   } else return totaltaxes.innerText ="$0.00";
 };
-
-/* PRINT CART */
 
