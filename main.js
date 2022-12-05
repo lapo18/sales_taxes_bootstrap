@@ -178,13 +178,13 @@ printButton.addEventListener('click', printItems)
 function printItems(){
   printButton.style.display="none";
   window.print();
-  printButton.style.display="block";
+  
 /*   CALL FUNCTION TO CLEAR BASKET AFTER PRINT WINDOWS IS CLOSED*/  
-  window.onafterprint=function(){
-    clearbasket();
-  }
-}
-
+};
+window.addEventListener('afterprint', (event) => {
+  printButton.style.display="block";
+  clearbasket();
+});
 /* DELETE ALL ITEMS ON BASKET*/
 function clearbasket(){
   basket=[];
