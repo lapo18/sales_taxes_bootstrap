@@ -180,10 +180,9 @@ function printItems(){
   window.print();
   printButton.style.display="block";
 /*   CALL FUNCTION TO CLEAR BASKET AFTER PRINT WINDOWS IS CLOSED*/  
-  window.addEventListener('afterprint', (event) => {
+  window.onafterprint=function(){
     clearbasket();
-  });
-  
+  }
 }
 
 /* DELETE ALL ITEMS ON BASKET*/
@@ -193,7 +192,6 @@ function clearbasket(){
   calcTotalTaxes();
   generateCartItems();
 }
-
 
 
 
