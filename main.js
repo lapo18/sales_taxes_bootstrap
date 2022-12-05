@@ -1,9 +1,8 @@
 let itemData=[];
 let basket=[];
-fetch('https://earnest-taffy-9e7259.netlify.app/sales-tax-problem-test.json')
+fetch('./sales-tax-problem-test.json')
 .then((response) => response.json())
 .then((data) => {
-   
   for (i = 0; i < data.length; i++) {
       data[i]["id"]=i+1;
       let itemsContainer = document.getElementById("items-container");
@@ -25,26 +24,22 @@ fetch('https://earnest-taffy-9e7259.netlify.app/sales-tax-problem-test.json')
           </svg>
             </div>
       </label>
-      <button onclick="increment(${i+1})"><span>add to cart</span></button>
+      <button onclick="addToBasket(${i+1})"><span>add to cart</span></button>
       </div>
      `;
-  
+     
       itemsContainer.appendChild(temp);
     }
     itemData=data;
 } );
 
 
+/* ADD ITEMS ITEMS TO THE BASKET AND UPDATE SELECTED PRODUCTS LIST
+ */
 
-
-
-
-
-
-
- 
- let increment = (id) => {
+let addToBasket = (id) => {
   scrollToCart();
+  
   let cb=document.querySelector(`#cb${id}`);
   let isImported=false;
   if(cb.checked){
@@ -60,26 +55,25 @@ fetch('https://earnest-taffy-9e7259.netlify.app/sales-tax-problem-test.json')
   console.log(basket);
   generateCartItems(); 
 
- 
 };
 
 
 
-
-
+/* SCROLL TO THE SELECTED PRODUCTS LIST
+ */
 function scrollToCart(){
     document.querySelector('.cart').scrollIntoView({ behavior: 'smooth' });
 }
 
 
-
-
+/* DELETE ITEM FROM SELECTED PRODUCTS LIST AND UPDATES THE TOTAL PRICES
+ */
 function removeCartItem(id){
   let deleteItem=document.querySelectorAll('.delete-button')
   console.log(deleteItem);
   basket.splice(id,1);
-  TotalAmount();
-  Totaltaxes();
+  calcTotalAmount();
+  calcTotalTaxes();
   generateCartItems();
 
 }
@@ -87,13 +81,12 @@ function removeCartItem(id){
 
 
 
- let ShoppingCart = document.getElementById("shopping-cart");
-
- let generateCartItems = () => {
+let ShoppingCart = document.getElementById("shopping-cart");
+let generateCartItems = () => {
   if (basket.length !== 0) {
     let i=-1;
-    TotalAmount();
-    Totaltaxes();
+    calcTotalAmount();
+    calcTotalTaxes();
 
     return (ShoppingCart.innerHTML = basket
       .map((x) => {
@@ -107,17 +100,14 @@ function removeCartItem(id){
         i++;
         return `
         <tr>
-                <td></td>
-                <td>${name}</td>
-                <td>${isImported}</td>
-                <td>$${price}</td>
-                <td>$${taxes}</td>
-                <td onclick="removeCartItem(${i})"class="delete-button"><i class="fa-solid fa-trash-can"></i></td>
-                <td></td>
-                
-              
-                
-              </tr>
+          <td></td>
+          <td>${name}</td>
+          <td>${isImported}</td>
+          <td>$${(parseFloat(price)+parseFloat(taxes)).toFixed(2)}</td>
+          <td>$${taxes.toFixed(2)}</td>
+          <td onclick="removeCartItem(${i})"class="delete-button"><i class="fa-solid fa-trash-can"></i></td>
+          <td></td>
+        </tr>
         `;
       })
       .join(""));
@@ -134,9 +124,10 @@ function removeCartItem(id){
 generateCartItems();
 
 
-
+/* CALCULATE THE TOTAL PRICE AND STORE RESPECTIVE TAX PER ITEM
+ */
 let total=document.getElementById('total');
-let TotalAmount = () => {
+let calcTotalAmount = () => {
   if (basket.length !== 0) {
     let amount = 
     basket.map((x) => {
@@ -164,30 +155,16 @@ let TotalAmount = () => {
   } else return total.innerText="$0.00";
 };
 
-TotalAmount();
 
 
+/* CALCULATE THE TOTAL AMOUNT OF TAXES
+ */
 let totaltaxes=document.getElementById('taxes');
-let Totaltaxes = () => {
+let calcTotalTaxes = () => {
   if (basket.length !== 0) {
     let amount = 
     basket.map((x) => {
-        let { id, imported, taxes } = x;
-        let search = itemData.find((x) => x.id === id) || [];
-        let { price, category } = search;
-        let importduty=0.00;
-        if(imported){
-          importduty=5.00;
-        }
-        let tax=0;
-        if(category=="other"){
-          tax=10.00;
-        }
-        
-        let totaltax=parseFloat(price)*(importduty+tax)/100;
-        let taxrounded = Math.round(totaltax*20)/20;
-        
-        /* let filterData = itemData.find((x) => x.id === id); */
+        let { taxes } = x;
         return parseFloat(taxes);
       })
       .reduce((x, y) => x + y, 0);
@@ -195,22 +172,24 @@ let Totaltaxes = () => {
     return (totaltaxes.innerText ="$"+amount.toFixed(2));
   } else return totaltaxes.innerText ="$0.00";
 };
-Totaltaxes();
 
-
+/* PRINT CART ITEMS AND CLEAR BASKET
+ */
 const printButton = document.getElementById('receiptbutton');
 printButton.addEventListener('click', function(){
   printButton.style.display="none";
-
   print();
-  clearbasket();
+  
   printButton.style.display="block";
+  clearbasket();
 })
 
+/* DELETE ALL ITEMS ON BASKET
+ */
 function clearbasket(){
   basket=[];
-  TotalAmount();
-  Totaltaxes();
+  calcTotalAmount();
+  calcTotalTaxes();
   generateCartItems();
 }
 
@@ -219,9 +198,3 @@ function clearbasket(){
 
 
 
-
-/* 
-TAXES ROUND UP TO 0.05
-
-let x= Math.round(0.49 *20.0)/20.0;
-document.getElementById("demo").innerHTML = parseFloat(x).toFixed(2); */
