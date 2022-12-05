@@ -176,15 +176,15 @@ let calcTotalTaxes = () => {
 let printButton = document.getElementById('receiptbutton');
 printButton.addEventListener('click', printItems)
 function printItems(){
-  let body=document.getElementsByTagName('body');
   printButton.style.display="none";
-  body.print();
+  window.print();
   
 /*   CALL FUNCTION TO CLEAR BASKET AFTER PRINT WINDOWS IS CLOSED*/  
 }
 window.addEventListener('afterprint', (event) => {
   printButton.style.display="block";
-  clearbasket();
+  setTimeout(function(){  clearbasket();},500)
+
 });
 /* DELETE ALL ITEMS ON BASKET*/
 function clearbasket(){
