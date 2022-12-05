@@ -185,16 +185,17 @@ print();
    */
 /*   CALL FUNCTION TO CLEAR BASKET AFTER PRINT WINDOWS IS CLOSED*/  
 
- window.onafterprint = (event) => {
+/*  window.onafterprint = (event) => {
   document.location.reload();
- /*  printButton.style.display="block";
-  setTimeout(function(){clearbasket();},500) */
-}; 
-
-/* window.addEventListener('afterprint', (event) => {
   printButton.style.display="block";
   setTimeout(function(){clearbasket();},500)
-}); */
+};  */
+
+window.addEventListener('afterprint', (event) => {
+  document.location.reload();
+/*   printButton.style.display="block";
+  setTimeout(function(){clearbasket();},500) */
+});
 /* DELETE ALL ITEMS ON BASKET*/
 function clearbasket(){
   basket=[];
