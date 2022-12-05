@@ -181,6 +181,9 @@ function printItems(){
   
 /*   CALL FUNCTION TO CLEAR BASKET AFTER PRINT WINDOWS IS CLOSED*/  
 };
+window.addEventListener('beforeprint', (event) => {
+  generateCartItems();
+});
 window.addEventListener('afterprint', (event) => {
   printButton.style.display="block";
   clearbasket();
