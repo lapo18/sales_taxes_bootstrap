@@ -176,8 +176,9 @@ let calcTotalTaxes = () => {
 let printButton = document.getElementById('receiptbutton');
 printButton.addEventListener('click', printItems)
 function printItems(){
+  let body=document.getElementsByTagName('body');
   printButton.style.display="none";
-  window.print();
+  body.print();
   
 /*   CALL FUNCTION TO CLEAR BASKET AFTER PRINT WINDOWS IS CLOSED*/  
 }
