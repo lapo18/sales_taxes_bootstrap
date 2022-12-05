@@ -174,13 +174,15 @@ let calcTotalTaxes = () => {
 
 /* PRINT CART */
 let printButton = document.getElementById('receiptbutton');
-printButton.addEventListener('click', printItems)
-function printItems(){
+printButton.addEventListener("click", function(){  printButton.style.display="none";
+window.print();});
+
+/* function printItems(){
   printButton.style.display="none";
   window.print();
-  
+   */
 /*   CALL FUNCTION TO CLEAR BASKET AFTER PRINT WINDOWS IS CLOSED*/  
-}
+
 window.addEventListener('afterprint', (event) => {
   printButton.style.display="block";
   setTimeout(function(){  clearbasket();},500)

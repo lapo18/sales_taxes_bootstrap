@@ -276,7 +276,17 @@ td {
 .fa-trash-can{
     color: #EE2D56;
 }
-
+@media print{
+    .catalogue{
+        display: none;
+    }
+    .delete-button{
+    opacity: 0;
+    }
+    .cart_summary{
+        max-width: 70vw;
+    }
+}
 
 
 @media only screen and (min-width:1024px) and (max-width: 1600px){
@@ -419,14 +429,3 @@ td {
     }
 }
 
-@media print{
-    .catalogue{
-        display: none;
-    }
-    .delete-button{
-    opacity: 0;
-    }
-    .cart_summary{
-        max-width: 70vw;
-    }
-}
