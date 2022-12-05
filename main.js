@@ -75,11 +75,10 @@ function removeCartItem(id){
   calcTotalAmount();
   calcTotalTaxes();
   generateCartItems();
-
 }
 
 
-
+/* UPDATES THE SELECTED PRODUCTS LIST WITH ADDED ITEMS TO THE BASKET */
 
 let ShoppingCart = document.getElementById("shopping-cart");
 let generateCartItems = () => {
@@ -157,8 +156,8 @@ let calcTotalAmount = () => {
 
 
 
-/* CALCULATE THE TOTAL AMOUNT OF TAXES
- */
+/* CALCULATE THE TOTAL AMOUNT OF TAXES*/
+
 let totaltaxes=document.getElementById('taxes');
 let calcTotalTaxes = () => {
   if (basket.length !== 0) {
@@ -173,24 +172,21 @@ let calcTotalTaxes = () => {
   } else return totaltaxes.innerText ="$0.00";
 };
 
-/* PRINT CART ITEMS AND CLEAR BASKET
- */
+/* PRINT CART */
 let printButton = document.getElementById('receiptbutton');
-printButton.addEventListener('click', printItems/* {
-  printButton.style.display="none";
-  print();
-  printButton.style.display="block";
-} */)
-
+printButton.addEventListener('click', printItems)
 function printItems(){
   printButton.style.display="none";
-  print();
+  window.print();
   printButton.style.display="block";
-  clearbasket();
+/*   CALL FUNCTION TO CLEAR BASKET AFTER PRINT WINDOWS IS CLOSED*/  
+  window.addEventListener('afterprint', (event) => {
+    clearbasket();
+  });
+  
 }
 
-/* DELETE ALL ITEMS ON BASKET
- */
+/* DELETE ALL ITEMS ON BASKET*/
 function clearbasket(){
   basket=[];
   calcTotalAmount();
