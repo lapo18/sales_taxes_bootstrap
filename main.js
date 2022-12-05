@@ -1,6 +1,3 @@
-
-
-
 let itemData=[];
 let basket=[];
 fetch('https://earnest-taffy-9e7259.netlify.app/sales-tax-problem-test.json')
@@ -8,7 +5,6 @@ fetch('https://earnest-taffy-9e7259.netlify.app/sales-tax-problem-test.json')
 .then((data) => {
    
   for (i = 0; i < data.length; i++) {
-      // console.log(data["products"][i]["id"]);
       data[i]["id"]=i+1;
       let itemsContainer = document.getElementById("items-container");
       temp = document.createElement('div');
@@ -44,6 +40,8 @@ fetch('https://earnest-taffy-9e7259.netlify.app/sales-tax-problem-test.json')
 
 
 
+
+
  
  let increment = (id) => {
   scrollToCart();
@@ -64,28 +62,6 @@ fetch('https://earnest-taffy-9e7259.netlify.app/sales-tax-problem-test.json')
 
  
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -121,8 +97,6 @@ function removeCartItem(id){
 
     return (ShoppingCart.innerHTML = basket
       .map((x) => {
-       
-        
         let { id, imported, taxes } = x;
         let search = itemData.find((x) => x.id === id) || [];
         let { price, name } = search;
@@ -132,9 +106,7 @@ function removeCartItem(id){
         }
         i++;
         return `
-     
-
-      <tr>
+        <tr>
                 <td></td>
                 <td>${name}</td>
                 <td>${isImported}</td>
@@ -146,16 +118,15 @@ function removeCartItem(id){
               
                 
               </tr>
-      `;
+        `;
       })
       .join(""));
-  } else {
+  } 
+  else {
     ShoppingCart.innerHTML = `
-
     <tr>
       <td class="fullwidth">Cart is Empty</td>
-      </tr>
-
+    </tr>
     `;
   }
   
@@ -225,6 +196,23 @@ let Totaltaxes = () => {
   } else return totaltaxes.innerText ="$0.00";
 };
 Totaltaxes();
+
+
+const printButton = document.getElementById('receiptbutton');
+printButton.addEventListener('click', function(){
+  printButton.style.display="none";
+
+  print();
+  clearbasket();
+  printButton.style.display="block";
+})
+
+function clearbasket(){
+  basket=[];
+  TotalAmount();
+  Totaltaxes();
+  generateCartItems();
+}
 
 
 

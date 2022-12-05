@@ -18,7 +18,7 @@ header{
 }
 
 nav {
-    max-width: 1400px;
+    max-width: 1200px;
     height: 84px;
     margin:0 auto;
     padding: 0 15px;
@@ -57,7 +57,7 @@ h4{
 }
 main{
     margin: 0 auto;
-    max-width: 1400px;
+    max-width: 1200px;
     padding: 0 15px;
 }
 .catalogue{
@@ -258,8 +258,7 @@ h4{
     border: 0;
   }
   th {
-    position: sticky;
-    top: 0;
+    
     text-align: left;
     font-weight: 700;
     font-size: 16px;
@@ -429,5 +428,19 @@ h4{
     }
 
 
+
+}
+
+@media print{
+    .catalogue{
+        display: none;
+    }
+    .delete-button{
+    opacity: 0;
+    }
+    .cart_summary{
+        max-width: 70vw;
+    }
+ 
 
 }
