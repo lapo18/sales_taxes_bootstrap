@@ -34,6 +34,39 @@ fetch('./sales-tax-problem-test.json')
 } );
 
 
+let printButton = document.getElementById('receiptbutton');
+printButton.addEventListener("click", function(){  printButton.style.display="none";
+print();});
+/* function printItems(){
+  printButton.style.display="none";
+  window.print();
+   */
+/*   CALL FUNCTION TO CLEAR BASKET AFTER PRINT WINDOWS IS CLOSED*/  
+
+window.onafterprint = (event) => {
+  printButton.style.display="block";
+  setTimeout(function(){clearbasket();},500)
+};
+
+/* window.addEventListener('afterprint', (event) => {
+  printButton.style.display="block";
+  setTimeout(function(){clearbasket();},500)
+
+}); */
+/* DELETE ALL ITEMS ON BASKET*/
+function clearbasket(){
+  basket=[];
+  calcTotalAmount();
+  calcTotalTaxes();
+  generateCartItems();
+}
+
+
+
+
+
+
+
 /* ADD ITEMS ITEMS TO THE BASKET AND UPDATE SELECTED PRODUCTS LIST
  */
 
@@ -173,30 +206,4 @@ let calcTotalTaxes = () => {
 };
 
 /* PRINT CART */
-let printButton = document.getElementById('receiptbutton');
-printButton.addEventListener("click", function(){  printButton.style.display="none";
-window.print();});
-
-/* function printItems(){
-  printButton.style.display="none";
-  window.print();
-   */
-/*   CALL FUNCTION TO CLEAR BASKET AFTER PRINT WINDOWS IS CLOSED*/  
-
-window.addEventListener('afterprint', (event) => {
-  printButton.style.display="block";
-  setTimeout(function(){  clearbasket();},500)
-
-});
-/* DELETE ALL ITEMS ON BASKET*/
-function clearbasket(){
-  basket=[];
-  calcTotalAmount();
-  calcTotalTaxes();
-  generateCartItems();
-}
-
-
-
-
 
