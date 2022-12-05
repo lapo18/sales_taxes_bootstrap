@@ -328,10 +328,17 @@ td {
 @media only screen and (max-width: 767px){
     h2{
         font-size: 30px;
+        margin-bottom: 15px;
     }
     h3{
         flex-grow: 2;
         font-size: 18px;
+    }
+    .products-list {
+        margin-top: 0px;
+    }
+    .catalogue{
+        margin-bottom: 35px;
     }
     .products-list{
         grid-template-columns:  
