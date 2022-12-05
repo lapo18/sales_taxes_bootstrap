@@ -179,22 +179,11 @@ let printButton = document.getElementById('receiptbutton');
 printButton.addEventListener("click", function(){printButton.style.display="none";
 print();
 });
-/* function printItems(){
-  printButton.style.display="none";
-  window.print();
-   */
 /*   CALL FUNCTION TO CLEAR BASKET AFTER PRINT WINDOWS IS CLOSED*/  
 
-/*  window.onafterprint = (event) => {
-  document.location.reload();
-  printButton.style.display="block";
-  setTimeout(function(){clearbasket();},500)
-};  */
-
 window.addEventListener('afterprint', (event) => {
-  document.location.reload();
-/*   printButton.style.display="block";
-  setTimeout(function(){clearbasket();},500) */
+  printButton.style.display="block";
+  setTimeout(function(){clearbasket();},500);
 });
 /* DELETE ALL ITEMS ON BASKET*/
 function clearbasket(){
