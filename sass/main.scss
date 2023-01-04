@@ -1,0 +1,47 @@
+$primary: #08C6C0;
+$secondary: #f2f2f2;
+$font-family-base: 'Lato';
+$form-check-input-border: 1px solid rgba($primary, 1);
+$form-check-margin-bottom:0px;
+$card-bg: $secondary;
+$enable-cssgrid: true;
+$card-border-width:0px;
+$card-cap-padding-y:0px;
+$card-cap-padding-x:0px;
+$table-cell-padding-y:0.25rem;
+$table-cell-padding-x:0.2rem;
+$card-group-margin:15rem;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1600px
+);
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+:root{
+    --bs-body-bg:#f2f2f2;
+}
+.grid{
+    --bs-gap:1.875rem;
+}
+table{
+    font-size: 0.875rem;
+}
+.table-borderless>:not(:first-child){
+    border-top-width:1px ;
+}
+
+
+@include media-breakpoint-up(sm) {
+    table {
+      font-size:1rem;
+   
+    }
+    .table>:not(caption)>*>*{
+        padding: 0.5rem 0.5rem;
+    }
+  }

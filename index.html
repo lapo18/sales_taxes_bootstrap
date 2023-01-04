@@ -4,63 +4,130 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/css/main.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="/styles.css">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&family=Lato:wght@400;700&display=swap" rel="stylesheet">
     <title>Sales Taxes Problem</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <a  href="https://instilla.it"><img class="logo" src="assets/image 1.png" alt=""></a>
-            <a class="navbar_link" href="">Sales Taxes Problem</a>
+    <header class="navbar bg-white rounded-1 shadow sticky-top">
+        <nav class="container flex-nowrap">
+            <a class="navbar-brand" href="https://instilla.it"><img class="logo" src="assets/image 1.png" alt=""></a>
+            <a class="nav-link text-primary text-uppercase text-end text-wrap fw-bold" href="">Sales Taxes Problem</a>
         </nav>
     </header>
-    <main>
-      <div class="catalogue">
+    <main class="container my-5 pt-4">
+      <h2 class="display-5 fw-bold">Products catalogue</h2>
+
+      <div id="items-container" class="row row-cols-2 row-cols-md-3 row-cols-lg-4 gy-5 gx-3 gx-md-5">
+      </div>
+
+      <h2 class="cart display-5 fw-bold mb-3">Selected products</h2>
+      <div class="bg-white rounded-1 mb-3">
+        <div class="col-12 px-md-4 py-1">
+          <table class="table table-borderless table-hover mb-0 products-list">
+            <thead>
+              <tr>
+                <th class="col-5 col-md-6 col-lg-7">PRODUCT</th>
+                <th class="col">IMPORTED</th>
+                <th class="col">PRICE</th>
+                <th class="col">TAX</th> 
+                <th class="col" class="empty"></th>
+                  
+                </tr>
+            </thead>
+            <tbody class="table-group-divider" id="shopping-cart">
+              <tr>
+                <td class="fw-bold">Bottle of perfume</td>
+                <td>Yes</td>
+                <td>$50.04</td>
+                <td>$12.50</td>
+                <td onclick="removeCartItem()" class="delete-button text-danger"><i class="fa-solid fa-trash-can"></i></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Bottle of perfume</td>
+                <td>Yes</td>
+                <td>$50.04</td>
+                <td>$12.50</td>
+                <td onclick="removeCartItem()"class="delete-button text-danger"><i class="fa-solid fa-trash-can"></i></td>
+              </tr>
+              <tr>
+                <td class="fw-bold">Bottle of perfume</td>
+                <td>Yes</td>
+                <td>$50.04</td>
+                <td>$12.50</td>
+                <td onclick="removeCartItem()"class="text-danger delete-button"><i class="fa-solid fa-trash-can"></i></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-end mb-4">
+        <div class="col-6 col-md-4 col-lg-3 ">
+          <button style="max-width:255px" type="button" class="w-100 btn btn-primary text-white text-uppercase" id="receiptbutton">generate receipt</button>
+  
+        </div>
+  
+        </div>
+
+      <div class="d-flex justify-content-end mt-2">
+      <div class="col-12 col-sm-10 col-md-8 col-lg-6  rounded-1 cart_summary shadow bg-white py-4 py-md-5 px-3 px-md-4">
+        <div class="row">
+          <div class="col-5">
+            <h2 class="fw-bold">Receipt</h2>
+          </div>
+          <div class="col-4">
+            <div class="fw-bold fs-5">Total amount</div>
+          </div>
+          <div class="col">
+            <div id="total">$0.00</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-5">
+          </div>
+          <div class="col-4">
+            <div class="fs-6">Including taxes</div>
+          </div>
+          <div class="col">
+            <div id="taxes" >$0.00</div>
+          </div>
+        </div>
+<!--         <div class="summary-container">
+        <div class="total flex">
+          
+        </div>
+        <div class="taxes flex">
+          
+        </div>
+        </div> -->
+      </div>
+
+      </div>
+  
+
+
+
+      </div>
+     <!--  <div class="catalogue">
         <h2>Products catalogue</h2>
         <div id="items-container">
         </div>
         
-      </div>
-      <div class="cart">
-        <h2>Selected products</h2>
-        <table class="products-list">
-            <thead>
-              <tr>
-                <th class="empty"></th>
-                <th>PRODUCT</th>
-                <th>IMPORTED</th>
-                <th>PRICE</th>
-                <th>TAX</th> 
-                <th></th>
-                <th class="empty"></th>
-                  
-                </tr>
-            </thead>
-            <tbody id="shopping-cart">
-            </tbody>
-          </table>
-        <button id="receiptbutton"><span>generate receipt</span></button>
-        <div class="cart_summary">
-          <h3>Receipt</h3>
-          <div class="summary-container">
-          <div class="total flex">
-            <span>Total amount</span>
-            <div id="total">$0.00</div>
-          </div>
-          <div class="taxes flex">
-            <span>Including taxes</span>
-          <div id="taxes" >$0.00</div>
-          </div>
-        </div>
-          
+      </div> -->
+        
+    
+      
+      
+      
 
-        </div>
-      </div>
+          
     </main>
     <footer>
+      
 
     </footer>
     <script src="main.js"></script>

@@ -1,4 +1,17 @@
-*{
+.badge{
+    left:8px;
+    top: 152px;
+}
+.card-img-top{
+    height: 11.43rem;
+    width: 100%;
+    object-fit: contain;
+}
+
+
+
+
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -30,6 +43,9 @@ nav {
 body{
     background-color:#F6F7FC;
     margin-top: 150px;
+}
+.container{
+    background-color: red;
 }
 a{
     text-transform: uppercase;
@@ -439,3 +455,4 @@ td {
     }
 }
 
+ */

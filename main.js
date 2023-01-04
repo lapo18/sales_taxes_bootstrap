@@ -7,25 +7,37 @@ fetch('./sales-tax-problem-test.json')
       data[i]["id"]=i+1;
       let itemsContainer = document.getElementById("items-container");
       temp = document.createElement('div');
-      temp.className = 'item';
+      temp.className = 'col';
       temp.innerHTML =  `
-      <div class="image-wrapper">
-          <img class="item-image" src="${data[i]["image"]}" alt="">
-          <div class="badge-secondary"><img src="assets/badge-icon.svg" alt=""> 
-          <span class="badge-category">${ data[i]["category"] }</span></div>
-      </div>
-      <div class="itemDetails">
-        <h4>${data[i]["name"]}</h4>
-      <span class="price">$${data[i]["price"]}</span>
-      <label class="import-wrapper"> Apply import duty
-          <input id="cb${i+1}" type="checkbox" " >
-          <div class="checkmark"><svg class="check" width="8" height="7" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M2.63484 4.76755L0.98486 3.24002L0.276367 3.89594L2.63484 6.07938L7.49859 1.57657L6.7901 0.920654L2.63484 4.76755Z" fill="white"/>
-          </svg>
-            </div>
+      <div class="card">
+      <div class="card-header bg-white rounded-1 shadow-sm position-relative">
+      <img class="card-img-top" src="${data[i]["image"]}" alt="">
+      <span class="badge text-bg-dark position-absolute">${data[i]["category"]}</span>
+    </div>
+    <div class="bg-secondary card-body p-0 mt-3">
+      <h5 class="m-0">${data[i]["name"]}</h5>
+      <div class="mb-2 price">$${data[i]["price"]}</div>
+      <div class="form-check">
+      <input id="cb${i+1}" class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Apply import duty
       </label>
-      <button onclick="addToBasket(${i+1})"><span>add to cart</span></button>
       </div>
+      <button type="button" class="btn btn-primary text-white mt-3 rounded-1 border-0 fs-6 w-100" onclick="addToBasket(${i+1})">ADD TO CART</button>
+      <!-- <label class="import-wrapper"> Apply import duty
+        <input id="cb1" type="checkbox" >
+        <div class="checkmark"><svg class="check" width="8" height="7" viewBox="0 0 8 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M2.63484 4.76755L0.98486 3.24002L0.276367 3.89594L2.63484 6.07938L7.49859 1.57657L6.7901 0.920654L2.63484 4.76755Z" fill="white"></path>
+        </svg>
+          </div>
+      </label> -->
+    </div>
+    </div>
+
+
+
+
+   
      `;
      
       itemsContainer.appendChild(temp);
@@ -100,21 +112,19 @@ let generateCartItems = () => {
         i++;
         return `
         <tr>
-          <td></td>
-          <td>${name}</td>
-          <td>${isImported}</td>
-          <td>$${(parseFloat(price)+parseFloat(taxes)).toFixed(2)}</td>
-          <td>$${taxes.toFixed(2)}</td>
-          <td onclick="removeCartItem(${i})"class="delete-button"><i class="fa-solid fa-trash-can"></i></td>
-          <td></td>
-        </tr>
+        <td class="fw-bold">${name}</td>
+        <td>${isImported}</td>
+        <td>$${(parseFloat(price)+parseFloat(taxes)).toFixed(2)}</td>
+        <td>$${taxes.toFixed(2)}</td>
+        <td onclick="removeCartItem(${i})" class="delete-button text-danger"><i class="fa-solid fa-trash-can"></i></td>
+      </tr>
         `;
       })
       .join(""));
   } 
   else {
     ShoppingCart.innerHTML = `
-    <tr>
+    <tr class="col-12 text-end">
       <td class="fullwidth">Cart is Empty</td>
     </tr>
     `;

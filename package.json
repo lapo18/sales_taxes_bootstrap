@@ -1,0 +1,24 @@
+{
+  "name": "sales_taxes",
+  "description": "I used Netlify to deploy this code here's the link: https://earnest-taffy-9e7259.netlify.app/",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lapo18/sales_taxes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lapo18/sales_taxes/issues"
+  },
+  "homepage": "https://github.com/lapo18/sales_taxes#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.3"
+  }
+
+}
